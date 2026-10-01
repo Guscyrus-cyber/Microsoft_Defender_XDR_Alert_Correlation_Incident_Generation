@@ -47,17 +47,8 @@ I navigate to Microsoft Defender → Incidents.
 
 The incident queue was reviewed to identify existing security incidents and determine whether any incidents already contained multiple alerts.
 
-It captures the Incidents page showing the Multi-alert incidents metric and the incident queue.\
-\
-(Image 1)\
-\
-\
-\
-\
-\
-\
-\
-\
+It captures the Incidents page showing the Multi-alert incidents metric and the incident queue.(Image 1)
+
 Step 2 — Establish the Initial Single-Alert Baseline
 
 I open Incident ID 2 and I review its Attack story.
@@ -71,8 +62,6 @@ Severity: Low
 
 This established the baseline before introducing another related alert. (Image 2)
 
-\
-\
 Step 3 — Examine the Original Alert
 
 I select Alerts and I open:
@@ -93,8 +82,6 @@ This demonstrated an important SOC distinction:
 
 Multiple incident activities do not necessarily mean multiple security alerts. (Image 4)
 
-\
-\
 Step 5 — Verify the Affected Asset
 
 I open: Assets → Users
@@ -107,11 +94,11 @@ I open Advanced hunting and query the AlertInfo table:
 
 AlertInfo
 
-\| where Timestamp \> ago(7d)
+| where Timestamp \> ago(7d)
 
-\| project Timestamp, AlertId, Title, Severity, Category, ServiceSource, DetectionSource
+| project Timestamp, AlertId, Title, Severity, Category, ServiceSource, DetectionSource
 
-\| order by Timestamp desc
+| order by Timestamp desc
 
 The query confirmed the alert information currently available to Defender XDR. (Image 6)
 
@@ -128,7 +115,6 @@ AlertEvidence
 \| order by Timestamp desc
 
 This demonstrated how analysts can use Advanced Hunting to examine entities and evidence associated with Defender alerts. (Image 7)\
-\
 
 Step 8 — Introduce the Second Related Training Alert
 
@@ -141,12 +127,7 @@ The alert was associated with the same SOC Test User used by the original trai
 No malicious activity was performed; the alert existed solely for SOC investigation and incident-correlation training.
 
 It captures the second alert showing its name and SOC Test User. (Images 8 and 9)\
-\
-\
-\
-\
-\
-\
+
 Step 9 — Associate the Related Alert with the Existing Incident
 
 The second training alert was linked to Incident ID 2, producing a multi-alert incident.
@@ -161,8 +142,7 @@ SOC Lab – Related Administrative Activity
 
 This demonstrated how related alerts can be investigated together as part of one security incident.
 
-In this lab, the second alert was manually linked to the existing incident. Therefore, the lab demonstrates alert-to-incident association/correlation, rather than claiming that Defender XDR automatically performed the correlation. (Image 10)\
-\
+In this lab, the second alert was manually linked to the existing incident. Therefore, the lab demonstrates alert-to-incident association/correlation, rather than claiming that Defender XDR automatically performed the correlation. (Image 10)
 
 Step 10 — Verify the Correlation in Incident Activities
 
@@ -178,11 +158,8 @@ I return to: Assets → Users
 
 The incident continued to identify: SOC Test User as the impacted user.
 
-This demonstrated the relationship: Alert 1 → SOC Test User ← Alert 2 (Image 12)\
-\
-\
-\
-\
+This demonstrated the relationship: Alert 1 → SOC Test User ← Alert 2 (Image 12)
+
 Step 12 — Review and Resolve the Multi-Alert Incident
 
 I review the Summary page. The final incident contained:
